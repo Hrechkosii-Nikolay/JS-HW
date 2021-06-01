@@ -21,6 +21,6 @@ const makeGalleryCard = ({ url, alt }) => {
     </li>`;
 };
 
-const galleryList = images.map(makeGalleryCard);
+const galleryList = images.map(makeGalleryCard).join("");
 
 galleryRef.insertAdjacentHTML("beforeend", galleryList);

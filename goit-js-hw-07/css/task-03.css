@@ -5,6 +5,7 @@ body {
 
 .img__gallery {
   max-height: 300px;
+  margin: 10px;
 }
 
 #gallery {
