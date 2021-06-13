@@ -2190,18 +2190,18 @@ var templateFunction = _handlebars.default.template({
           "column": 24
         }
       }
-    }) : helper)) + " alt=" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    }) : helper)) + " loading=\"lazy\" alt=" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
       "name": "name",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 4,
-          "column": 29
+          "column": 44
         },
         "end": {
           "line": 4,
-          "column": 37
+          "column": 52
         }
       }
     }) : helper)) + " class=\"card__image\" />\r\n      <div class=\"card__content\">\r\n        <h2 class=\"card__name\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
@@ -2371,6 +2371,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var menuRef = document.querySelector(".js-menu");
 var menuMarkup = (0, _menuCardMarkup.default)(_menu.default);
 menuRef.insertAdjacentHTML("beforeend", menuMarkup);
+var Theme = {
+  LIGHT: "light-theme",
+  DARK: "dark-theme"
+};
+var themeBtnRef = document.querySelector("#theme-switch-toggle");
+var bodyRef = document.querySelector("body");
+var carrentTheme = localStorage.getItem("theme");
+bodyRef.classList.add(Theme.LIGHT);
+themeBtnRef.addEventListener("change", onCliktChengeThemeBtn);
+
+function onCliktChengeThemeBtn() {
+  if (themeBtnRef.checked) {
+    bodyRef.classList.replace(Theme.LIGHT, Theme.DARK);
+    localStorage.setItem("theme", Theme.DARK);
+  } else {
+    bodyRef.classList.replace(Theme.DARK, Theme.LIGHT);
+    localStorage.setItem("theme", Theme.LIGHT);
+  }
+}
+
+function saveCarrentTheme() {
+  if (carrentTheme === Theme.DARK) {
+    bodyRef.classList.replace(Theme.LIGHT, Theme.DARK);
+    themeBtnRef.setAttribute("checked", true);
+  }
+}
+
+saveCarrentTheme();
 },{"./template/menuCardMarkup.hbs":"template/menuCardMarkup.hbs","./menu.json":"menu.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -2399,7 +2427,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53472" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54053" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
